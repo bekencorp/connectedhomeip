@@ -15,7 +15,7 @@
  *    limitations under the License.
  */
 
-#include <platform_stdlib.h>
+//#include <platform_stdlib.h>
 
 #include "CHIPDeviceManager.h"
 #include "DeviceCallbacks.h"
@@ -23,7 +23,7 @@
 #include "LEDWidget.h"
 #include "Server.h"
 
-#include "chip_porting.h"
+//#include "chip_porting.h"
 #include <credentials/DeviceAttestationCredsProvider.h>
 #include <credentials/examples/DeviceAttestationCredsExample.h>
 #include <platform/CHIPDeviceLayer.h>
@@ -36,7 +36,7 @@
 #include <setup_payload/ManualSetupPayloadGenerator.h>
 #include <setup_payload/QRCodeSetupPayloadGenerator.h>
 
-#include <lwip_netconf.h>
+//#include <lwip_netconf.h>
 
 extern "C" {
 void * __dso_handle = 0;
@@ -62,20 +62,23 @@ static DeviceCallbacks EchoCallbacks;
 
 void GetGatewayIP(char * ip_buf, size_t ip_len)
 {
+#if 0
     uint8_t * gateway = LwIP_GetGW(&xnetif[0]);
     sprintf(ip_buf, "%d.%d.%d.%d", gateway[0], gateway[1], gateway[2], gateway[3]);
+#endif
     printf("Got gateway ip: %s\r\n", ip_buf);
 }
 
 // need to check CONFIG_RENDEZVOUS_MODE
 bool isRendezvousBLE()
 {
-    RendezvousInformationFlags flags = RendezvousInformationFlags(CONFIG_RENDEZVOUS_MODE);
-    return flags.Has(RendezvousInformationFlag::kBLE);
+    //RendezvousInformationFlags flags = RendezvousInformationFlags(CONFIG_RENDEZVOUS_MODE);
+    //return flags.Has(RendezvousInformationFlag::kBLE);
 }
 
 std::string createSetupPayload()
 {
+#if 0
     CHIP_ERROR err = CHIP_NO_ERROR;
     std::string result;
 
@@ -170,7 +173,8 @@ std::string createSetupPayload()
     {
         printf("Couldn't get payload string %\r\n" CHIP_ERROR_FORMAT, err.Format());
     }
-    return result;
+#endif
+    return "ff";
 };
 
 void OnIdentifyStart(Identify *)
@@ -211,6 +215,9 @@ static Identify gIdentify1 = {
 
 extern "C" void ChipTest(void)
 {
+	printf("In ChipTest()\r\n");
+
+#if 0
     printf("In ChipTest()\r\n");
     CHIP_ERROR err = CHIP_NO_ERROR;
 
@@ -252,6 +259,7 @@ extern "C" void ChipTest(void)
 
     while (true)
         vTaskDelay(pdMS_TO_TICKS(50));
+#endif
 }
 
 bool lowPowerClusterSleep()

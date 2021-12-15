@@ -172,7 +172,7 @@ CHIP_ERROR AmebaConfig::ReadConfigValueBin(Key key, uint8_t * buf, size_t bufSiz
         return CHIP_DEVICE_ERROR_CONFIG_NOT_FOUND;
     }
 #endif
-	CHIP_DEVICE_ERROR_CONFIG_NOT_FOUND
+	return CHIP_DEVICE_ERROR_CONFIG_NOT_FOUND;
 }
 
 CHIP_ERROR AmebaConfig::WriteConfigValue(Key key, bool val)
@@ -272,7 +272,8 @@ CHIP_ERROR AmebaConfig::ClearConfigValue(Key key)
 
 bool AmebaConfig::ConfigValueExists(Key key)
 {
-    return checkExist(key.Namespace, key.Name);
+    //return checkExist(key.Namespace, key.Name);
+    return false;
 }
 
 CHIP_ERROR AmebaConfig::EnsureNamespace(const char * ns)

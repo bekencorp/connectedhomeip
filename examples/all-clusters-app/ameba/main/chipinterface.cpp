@@ -15,7 +15,7 @@
  *    limitations under the License.
  */
 
-#include <platform_stdlib.h>
+//#include <platform_stdlib.h>
 
 #include "CHIPDeviceManager.h"
 #include "DeviceCallbacks.h"

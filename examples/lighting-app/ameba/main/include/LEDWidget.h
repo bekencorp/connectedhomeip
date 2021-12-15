@@ -19,7 +19,7 @@
 
 #pragma once
 
-#include <platform_stdlib.h>
+//#include <platform_stdlib.h>
 
 #ifdef CONFIG_PLATFORM_8710C
 #include "gpio_api.h"
@@ -127,7 +127,7 @@ typedef enum
     AD_7      = VBAT_MEAS, // CH7
 
     // Not connected
-    NC = (uint32_t) 0xFFFFFFFF
+    //NC = (uint32_t) 0xFFFFFFFF
 } PinName;
 
 typedef struct gpio_s
@@ -138,14 +138,14 @@ typedef struct gpio_s
 #endif
 
 typedef struct gpio_s gpio_t;
-
+#if 0
 extern "C" void gpio_init(gpio_t * obj, PinName pin);
 extern "C" uint32_t gpio_set(PinName pin);
 extern "C" void gpio_mode(gpio_t * obj, PinMode mode);
 extern "C" void gpio_dir(gpio_t * obj, PinDirection direction);
 extern "C" void gpio_write(gpio_t * obj, int value);
 extern "C" int gpio_read(gpio_t * obj);
-
+#endif
 class LEDWidget
 {
 public:

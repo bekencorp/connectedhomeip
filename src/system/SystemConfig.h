@@ -183,7 +183,7 @@
  *      Unless you are simulating an LwIP-based system on a Unix-style host, this value should be left at its default.
  */
 #ifndef CHIP_SYSTEM_CONFIG_POSIX_LOCKING
-#define CHIP_SYSTEM_CONFIG_POSIX_LOCKING 1
+#define CHIP_SYSTEM_CONFIG_POSIX_LOCKING 0
 #endif /* CHIP_SYSTEM_CONFIG_POSIX_LOCKING */
 
 /**
@@ -197,7 +197,7 @@
  *      However, if you are simulating an LwIP-based system atop POSIX threads and BSD sockets, this should also be deasserted (0).
  */
 #ifndef CHIP_SYSTEM_CONFIG_FREERTOS_LOCKING
-#define CHIP_SYSTEM_CONFIG_FREERTOS_LOCKING 0
+#define CHIP_SYSTEM_CONFIG_FREERTOS_LOCKING 1
 #endif /* CHIP_SYSTEM_CONFIG_FREERTOS_LOCKING */
 
 /**

@@ -20,7 +20,7 @@
 
 #include <platform/internal/CHIPDeviceLayerInternal.h>
 
-//#include "chip_porting.h"
+#include "chip_porting.h"
 
 #include <string.h>
 

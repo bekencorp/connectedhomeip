@@ -115,6 +115,8 @@ inline void Mutex::Unlock() {}
 #endif // CHIP_SYSTEM_CONFIG_NO_LOCKING
 
 #if CHIP_SYSTEM_CONFIG_POSIX_LOCKING
+
+
 inline void Mutex::Lock()
 {
     pthread_mutex_lock(&this->mPOSIXMutex);
@@ -127,6 +129,7 @@ inline void Mutex::Unlock()
 #endif // CHIP_SYSTEM_CONFIG_POSIX_LOCKING
 
 #if CHIP_SYSTEM_CONFIG_FREERTOS_LOCKING
+
 inline void Mutex::Unlock(void)
 {
     xSemaphoreGive(this->mFreeRTOSSemaphore);

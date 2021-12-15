@@ -42,7 +42,7 @@
 namespace chip {
 namespace DeviceLayer {
 
-void SetSystemLayerForTesting(System::LayerImpl * layer);
+//void SetSystemLayerForTesting(System::LayerImpl * layer);
 
 // These functions are defined in src/platform/Globals.cpp
 chip::Inet::EndPointManager<Inet::UDPEndPoint> * UDPEndPointManager();

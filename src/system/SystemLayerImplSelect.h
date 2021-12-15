@@ -36,7 +36,7 @@
 
 namespace chip {
 namespace System {
-
+#if 0
 class LayerImplSelect : public LayerSocketsLoop
 {
 public:
@@ -121,6 +121,7 @@ protected:
 };
 
 using LayerImpl = LayerImplSelect;
+#endif
 
 } // namespace System
 } // namespace chip

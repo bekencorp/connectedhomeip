@@ -12,24 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import("//build_overrides/build.gni")
 import("//build_overrides/chip.gni")
-#import("${build_root}/toolchain/arm_gcc/arm_toolchain.gni")
-import("${build_root}/toolchain/gcc_toolchain.gni")
-declare_args() {
-  beken_ar = ""
-  beken_cc = ""
-  beken_cxx = ""
-}
 
-gcc_toolchain("beken") {
-  ar = beken_ar
-  cc = beken_cc
-  cxx = beken_cxx
+chip_device_platform = "beken"
 
-  toolchain_args = {
-    current_os = "freertos"
-    is_clang = false
-    import("${chip_root}/src/platform/Beken/args.gni")
-  }
-}
+lwip_platform = "external"
+mbedtls_target = "//mbedtls:mbedtls"
+
+chip_build_tests = false
+chip_inet_config_enable_tun_endpoint = false
+chip_inet_config_enable_tcp_endpoint = true
+chip_inet_config_enable_udp_endpoint = true

@@ -29,7 +29,7 @@ gpio_t gpio_led;
 
 void LEDWidget::Init(PinName gpioNum)
 {
-
+#if 0
     mGPIONum = gpioNum;
     mState   = false;
 
@@ -41,15 +41,17 @@ void LEDWidget::Init(PinName gpioNum)
         gpio_mode(&gpio_led, PullNone);  // No pull
         gpio_write(&gpio_led, mState);
     }
+#endif
 }
 
 void LEDWidget::Set(bool state)
 {
-    DoSet(state);
+   // DoSet(state);
 }
 
 void LEDWidget::DoSet(bool state)
 {
+#if 0
     bool stateChange = (mState != state);
     mState           = state;
 
@@ -57,4 +59,5 @@ void LEDWidget::DoSet(bool state)
     {
         gpio_write(&gpio_led, state);
     }
+#endif
 }
